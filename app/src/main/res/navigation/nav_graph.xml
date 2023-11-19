@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/ListaFragment">
+    app:startDestination="@id/tvListaTareas">
 
     <fragment
-        android:id="@+id/ListaFragment"
+        android:id="@+id/tvListaTareas"
         android:name="net.iessochoastf.practica5.ListaFragment"
         android:label="@string/lista_fragment_label"
         tools:layout="@layout/fragment_lista">
@@ -24,6 +24,6 @@
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/ListaFragment" />
+            app:destination="@id/tvListaTareas" />
     </fragment>
 </navigation>
