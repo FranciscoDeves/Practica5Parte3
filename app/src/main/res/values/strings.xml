@@ -10,6 +10,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment</string>
     <string name="categoria">Categoria</string>
+    <string name="prioridad">Prioridad</string>
 
 
     <string-array name="categoria">
@@ -19,6 +20,14 @@
         <item>Comercial</item>
         <item>otros</item>
     </string-array>
+
+    <string-array name="prioridad">
+        <item>Baja</item>
+        <item>Media</item>
+        <item>Alta</item>
+    </string-array>
+
+    <string name="mensaje_categoria">Has seleccionado %1$s como categoría</string>
 
 
 </resources>
