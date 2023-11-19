@@ -29,6 +29,10 @@
 
     <string name="mensaje_categoria">Has seleccionado %1$s como categoría</string>
     <string name="pagado">Pagado</string>
+    <string name="estado_de_la_tarea">Estado De La Tarea</string>
+    <string name="abierta">Abierta</string>
+    <string name="en_curso">En Curso</string>
+    <string name="cerrada">Cerrada</string>
 
 
 </resources>
