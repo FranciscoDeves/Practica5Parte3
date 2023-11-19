@@ -1,4 +1,4 @@
-package net.iessochoastf.practica5
+package net.iessochoastf.practica5.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import net.iessochoastf.practica5.databinding.FragmentListaBinding
+import net.iessochoastf.practica5.R
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -14,27 +15,22 @@ import net.iessochoastf.practica5.databinding.FragmentListaBinding
 class ListaFragment : Fragment() {
 
     private var _binding: FragmentListaBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentListaBinding.inflate(inflater, container, false)
         return binding.root
-
     }
-}
-/*
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        // Establecer el OnClickListener del FAB dentro de onViewCreated
+        binding.fabNuevo.setOnClickListener {
+            findNavController().navigate(R.id.action_editar)
         }
     }
 
@@ -42,4 +38,5 @@ class ListaFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-}*/
+}
+

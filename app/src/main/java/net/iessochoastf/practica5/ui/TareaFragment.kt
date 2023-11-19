@@ -1,4 +1,4 @@
-package net.iessochoastf.practica5
+package net.iessochoastf.practica5.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -24,23 +24,17 @@ class TareaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentTareaBinding.inflate(inflater, container, false)
         return binding.root
-
     }
-}
-/*
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+        // Tu lógica aquí
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-}*/
+}

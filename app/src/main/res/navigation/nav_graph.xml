@@ -3,27 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/tvListaTareas">
-
-    <fragment
-        android:id="@+id/tvListaTareas"
-        android:name="net.iessochoastf.practica5.ListaFragment"
-        android:label="@string/lista_fragment_label"
-        tools:layout="@layout/fragment_lista">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/TareaFragment" />
-    </fragment>
+    app:startDestination="@id/ListaFragment">
 
     <fragment
         android:id="@+id/TareaFragment"
-        android:name="net.iessochoastf.practica5.TareaFragment"
+        android:name="net.iessochoastf.practica5.ui.TareaFragment"
         android:label="@string/tarea_fragment_label"
         tools:layout="@layout/fragment_tarea">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/tvListaTareas" />
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/ListaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ListaFragment"
+        android:name="net.iessochoastf.practica5.ui.ListaFragment"
+        android:label="@string/lista_fragment_label"
+        tools:layout="@layout/fragment_lista">
+
+        <action
+            android:id="@+id/action_editar"
+            app:destination="@id/TareaFragment" />
     </fragment>
 </navigation>
