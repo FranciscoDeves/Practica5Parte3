@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import net.iessochoastf.practica5.databinding.FragmentListaBinding
 import net.iessochoastf.practica5.databinding.FragmentTareaBinding
+import net.iessochoastf.practica5.R
+import android.widget.ArrayAdapter
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -31,6 +33,28 @@ class TareaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Tu lógica aquí
+
+        iniciaSpCategoria()
+
+    }
+
+
+    //Añadimos el metodo
+
+    private fun iniciaSpCategoria() {
+        ArrayAdapter.createFromResource(
+        //contexto suele ser la Activity
+            requireContext(),
+        //array de strings
+            R.array.categoria,
+        //layout para mostrar el elemento seleccionado
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+        // Layout para mostrar la apariencia de la lista
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        // asignamos el adaptador al spinner
+            binding.spCategoria.adapter = adapter
+        }
     }
 
     override fun onDestroyView() {
