@@ -35,6 +35,7 @@
     <string name="cerrada">Cerrada</string>
 
     <string name="horas_trabajadas">Llevo %1$d horas trabajadas</string>
+    <string name="tecnico">Tecnico</string>
 
 
 </resources>
