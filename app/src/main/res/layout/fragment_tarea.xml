@@ -123,4 +123,24 @@
         app:layout_constraintBottom_toTopOf="@+id/rgEstado"
         app:layout_constraintStart_toEndOf="@+id/tvEstado" />
 
+    <SeekBar
+        android:id="@+id/sbHoras"
+        android:layout_width="197dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:max="30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHoras"
+        app:layout_constraintTop_toTopOf="@+id/rgEstado" />
+
+    <TextView
+        android:id="@+id/tvHoras"
+        android:layout_width="182dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/horas_trabajadas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgEstado" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

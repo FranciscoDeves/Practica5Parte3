@@ -34,5 +34,7 @@
     <string name="en_curso">En Curso</string>
     <string name="cerrada">Cerrada</string>
 
+    <string name="horas_trabajadas">Llevo %1$d horas trabajadas</string>
+
 
 </resources>
