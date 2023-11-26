@@ -2,7 +2,11 @@ package net.iessochoastf.practica5.model.temp
 
 import android.app.Application
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import net.iessochoastf.practica5.model.Tarea
+import java.util.*
+
 
 object ModelTempTareas {
 
@@ -63,6 +67,7 @@ object ModelTempTareas {
                 "Zape Gómez"
             )
             lateinit var tarea: Tarea
+
                         (1..10).forEach({
                         tarea = Tarea(
                         (0..4).random(),
