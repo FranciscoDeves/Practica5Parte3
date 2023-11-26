@@ -12,8 +12,10 @@ object ModelTempTareas {
 
     //lista de tareas
     private val tareas = ArrayList<Tarea>()
+
     //LiveData para observar en la vista los cambios en la lista
     private val tareasLiveData = MutableLiveData<List<Tarea>>(tareas)
+
     //el context que suele ser necesario en acceso a datos
     private lateinit var application: Application
 
@@ -25,11 +27,10 @@ object ModelTempTareas {
 
 
     /**
-     * devuelve un LiveData en vez de MutableLiveData
-    para evitar su modificación en las capas superiores
-     */
-    fun getAllTareas(): LiveData<ArrayList<Tarea>>
-    {
+      Devuelve un LiveData en vez de MutableLiveData
+      para evitar su modificación en las capas superiores
+     **/
+    fun getAllTareas(): LiveData<List<Tarea>>    {
         tareasLiveData.value= tareas
         return tareasLiveData
     }
@@ -54,10 +55,10 @@ object ModelTempTareas {
         tareasLiveData.value = tareas
         }
         /**
-         * Crea unas Tareas de prueba de forma aleatoria.
-         */
-        fun iniciaPruebaTareas()
-            {
+        * Crea unas Tareas de prueba de forma aleatoria.
+        **/
+
+        fun iniciaPruebaTareas() {
             val tecnicos = listOf(
                 "Pepe Gotero",
                 "Sacarino Pómez",
@@ -66,31 +67,29 @@ object ModelTempTareas {
                 "Zipi Climent",
                 "Zape Gómez"
             )
+
+            //Random es una clase en Java y las funciones de extensión de Kotlin
+            // Como nextBoolean(), no se pueden acceder directamente desde clases Java
+            val random = Random() // Crear una instancia de Random
+
             lateinit var tarea: Tarea
-
-                        (1..10).forEach({
-                        tarea = Tarea(
-                        (0..4).random(),
-                        (0..2).random(),
-                        Random.nextBoolean(),
-                        (0..2).random(),
-                        (0..30).random(),
-                        (0..5).random().toFloat(),
-                        tecnicos.random(),
-                            "tarea $it Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat                 ligula et vehicula mattis. \n Etiam tristique ornare lacinia. Vestibulum lacus magna, dignissim et                            tempor id, convallis sed augue"                )
-                        tareas.add(tarea)
-                                            })
-                //actualizamos el LiveData
-                tareasLiveData.value = tareas
+            (1..10).forEach {
+                tarea = Tarea(
+                    (0..4).random(),
+                    (0..2).random(),
+                    random.nextBoolean(), // Llamar a nextBoolean() desde la instancia de Random
+                    (0..2).random(),
+                    (0..30).random(),
+                    (0..5).random().toFloat(),
+                    tecnicos.random(),
+                    "tarea $it Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat ligula et vehicula mattis. \n Etiam tristique ornare lacinia. Vestibulum lacus magna, dignissim et tempor id, convallis sed augue"
+                )
+                tareas.add(tarea)
+            }
+            // actualizamos el LiveData
+            tareasLiveData.value = tareas
         }
-/*
-        operator fun invoke(context: Context)
-        {
-            this.application = context.applicationContext as Application
-            iniciaPruebaTareas()
 
-        }
-*/
     /**
      * Borra una tarea y actualiza el LiveData
      * para avisar a los observadores
