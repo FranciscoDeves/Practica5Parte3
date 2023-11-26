@@ -39,6 +39,8 @@ class TareaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // Tu lógica aquí
 
+
+
         iniciaSpCategoria()
         iniciaSpPrioridad()
         iniciaSwPagado()
@@ -83,7 +85,6 @@ class TareaFragment : Fragment() {
                 }
         }
     }
-
 
     private fun iniciaSpPrioridad() {
         ArrayAdapter.createFromResource(

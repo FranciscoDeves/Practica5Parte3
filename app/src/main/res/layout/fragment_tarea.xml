@@ -130,6 +130,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
         android:max="30"
+        android:progressTint="@color/VerdeClaro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvHoras"
         app:layout_constraintTop_toTopOf="@+id/rgEstado" />

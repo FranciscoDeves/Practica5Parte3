@@ -1,5 +1,8 @@
 package net.iessochoastf.practica5.ui
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.hardware.camera2.params.BlackLevelPattern
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -24,9 +27,17 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        //supportActionBar().set
+
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+
+     //   supportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("Black"")))
+     //   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
+     //   supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#000000")))
+      //  supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#000000"))
 
 
     }
