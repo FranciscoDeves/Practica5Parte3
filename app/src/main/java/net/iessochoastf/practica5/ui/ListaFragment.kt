@@ -14,9 +14,6 @@ import net.iessochoastf.practica5.viewmodel.AppViewModel
 import androidx.lifecycle.Observer
 
 
-
-
-
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
@@ -45,13 +42,22 @@ class ListaFragment : Fragment() {
 
 
 
-        // Establecer el OnClickListener del FAB dentro de onViewCreated
-        binding.fabNuevo.setOnClickListener {
-            //creamos acción enviamos argumento nulo porque queremos crear NuevaTarea
-            val action=ListaFragmentDirections.actionEditar(null)
+        // Este codigo es el que hacia que petase la app
+        /*
+        El estába en la llamada a findNavController().navigate(R.id.action_editar)
+        en el OnClickListener del FAB (binding.fabNuevo.setOnClickListener).
+        se estaba intentando navegar a un destino con un id específico (R.id.action_editar)
+        sin proporcionar los argumentos requeridos para la transición.
+         */
 
-            findNavController().navigate(R.id.action_editar)
+        binding.fabNuevo.setOnClickListener {
+            // Crear acción para editar una nueva tarea, enviando un argumento nulo
+            val action = ListaFragmentDirections.actionEditar(null)
+            findNavController().navigate(action)
         }
+
+
+
 
         //para prueba, editamos una tarea aleatoria
         binding.btPruebaEdicion.setOnClickListener{
@@ -63,10 +69,6 @@ class ListaFragment : Fragment() {
             val action=ListaFragmentDirections.actionEditar(tarea)
             findNavController().navigate(action)
         }
-
-
-
-
 
     }
 
@@ -98,18 +100,8 @@ class ListaFragment : Fragment() {
             }
         }
         binding.tvLista.setText(listaString)
-
     }
-
     //Declaramos el ViewModel para compartir datos entre fragments
-
-
-
-
-
-
-
-
 
 }
 
