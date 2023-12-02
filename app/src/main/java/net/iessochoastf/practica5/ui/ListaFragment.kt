@@ -79,6 +79,8 @@ class ListaFragment : Fragment() {
 
     }
 
+    //Declaramos el ViewModel para compartir datos entre fragments
+
 
 
 

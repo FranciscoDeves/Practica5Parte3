@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -53,9 +55,9 @@ dependencies {
 
     // ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-// Activity
+    // Activity
     implementation ("androidx.activity:activity-ktx:1.8.0")
-// LiveData
+    // LiveData
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 
 }
