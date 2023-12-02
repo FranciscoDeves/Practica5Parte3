@@ -3,8 +3,9 @@ plugins {
     id("com.android.application") version "8.1.2" apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
 
-   //añadido con la version y apply a false, es diferente al documento de trabajo ?¿?¿
-    id ("androidx.navigation.safeargs.kotlin") version "2.7.4" apply false
+   //añadido en el gradle del app, si no no me coge
+   //val action=ListaFragmentDirections.actionEditar(tarea) y me sale en rojo ListaFragmentDirections
+//    id ("androidx.navigation.safeargs.kotlin") version "2.7.4" apply false
 
 }
 

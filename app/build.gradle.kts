@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    //añadido en el gradle del app, si no no me coge ListaFragmentDirections
 
 }
 
