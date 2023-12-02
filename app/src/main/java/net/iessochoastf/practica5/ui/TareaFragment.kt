@@ -66,14 +66,15 @@ class TareaFragment : Fragment() {
         //}
 
         //si es nueva tarea o es una edicion
-
+/*
         if (esNuevo)//nueva tarea
-        //cambiamos el título de la ventana
+        //cambiamos el título de la ventana FALLA
             (requireActivity() as AppCompatActivity).supportActionBar?.title = "Nueva tarea"
         else
             iniciaTarea(args.tarea!!)
+*/
 
-
+        iniciaFabGuardar()
     }
 
     /**
@@ -226,6 +227,52 @@ class TareaFragment : Fragment() {
         binding.sbHoras.progress=0
         binding.tvHoras.text=getString(R.string.horas_trabajadas,0)
     }
+
+
+    private fun guardaTarea() {
+    //recuperamos los datos
+        val categoria=binding.spCategoria.selectedItemPosition
+        val prioridad=binding.spPrioridad.selectedItemPosition
+        val pagado=binding.swPagado.isChecked
+        val estado=when (binding.rgEstado.checkedRadioButtonId) {
+            R.id.rbAbierta -> 0
+            R.id.rbEnCurso -> 1
+            else -> 2
+        }
+        val horas=binding.sbHoras.progress
+        val valoracion=binding.rbValoracion.rating
+        val tecnico=binding.etTecnico.text.toString()
+        val descripcion=binding.etDescripcion.text.toString()
+        //creamos la tarea: si es nueva, generamos un id, en otro caso le asignamos su id
+        val tarea = if(esNuevo)
+            Tarea(categoria,prioridad,pagado,estado,horas,valoracion,tecnico,descripcion)
+        else
+            Tarea(args.tarea!!.id,categoria,prioridad,pagado,estado,horas,valoracion,tecnico,descripcion)
+        //guardamos la tarea desde el viewmodel
+        viewModel.addTarea(tarea)
+        //salimos de editarFragment
+        findNavController().popBackStack()
+    }
+
+    private fun iniciaFabGuardar() {
+
+        binding.fabGuardar.setOnClickListener{
+            if (binding.etTecnico.text.toString().isEmpty())
+
+                muestraMensajeError()
+            else
+                guardaTarea()
+
+        }
+
+
+    }
+
+    private fun muestraMensajeError() {
+        Snackbar.make(binding.root, "El campo técnico está vacío", Snackbar.LENGTH_SHORT).show()
+    }
+
+
 
 
     override fun onDestroyView() {
