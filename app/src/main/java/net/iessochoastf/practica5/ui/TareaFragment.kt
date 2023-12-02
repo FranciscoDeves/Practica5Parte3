@@ -14,6 +14,11 @@ import android.widget.AdapterView
 import android.graphics.Color
 import com.google.android.material.snackbar.Snackbar
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.navArgs
+import net.iessochoastf.practica5.model.Tarea
+import net.iessochoastf.practica5.viewmodel.AppViewModel
 
 
 /**
@@ -22,6 +27,15 @@ import android.widget.SeekBar
 class TareaFragment : Fragment() {
 
     private var _binding: FragmentTareaBinding? = null
+
+    val args: TareaFragmentArgs by navArgs()
+    private val viewModel: AppViewModel by activityViewModels()
+    //será una tarea nueva si no hay argumento
+    val esNuevo by lazy { args.tarea==null }
+
+
+
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -47,6 +61,42 @@ class TareaFragment : Fragment() {
         iniciaRgEstado()
         iniciaSbHoras()
 
+        //if (esNuevo && activity != null) {
+        //    (activity as? AppCompatActivity)?.supportActionBar?.title = "Nueva tarea"
+        //}
+
+        //si es nueva tarea o es una edicion
+
+        if (esNuevo)//nueva tarea
+        //cambiamos el título de la ventana
+            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Nueva tarea"
+        else
+            iniciaTarea(args.tarea!!)
+
+
+    }
+
+    /**
+     * Carga los valores de la tarea a editar
+     */
+    private fun iniciaTarea(tarea: Tarea) {
+        binding.spCategoria.setSelection(tarea.categoria)
+        binding.spPrioridad.setSelection(tarea.prioridad)
+        binding.swPagado.isChecked = tarea.pagado
+        binding.rgEstado.check(
+            when (tarea.estado) {
+                0 -> R.id.rbAbierta
+                1 -> R.id.rbEnCurso
+                else -> R.id.rbCerrada
+            }
+        )
+        binding.sbHoras.progress = tarea.horasTrabajo
+        binding.rbValoracion.rating = tarea.valoracionCliente
+        24
+        binding.etTecnico.setText(tarea.tecnico)
+        binding.etDescripcion.setText(tarea.descripcion)
+//cambiamos el título
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Tarea ${tarea.id}"
     }
 
 
