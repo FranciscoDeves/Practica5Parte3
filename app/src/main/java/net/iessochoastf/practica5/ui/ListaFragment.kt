@@ -38,6 +38,7 @@ class ListaFragment : Fragment() {
 
         viewModel.tareasLiveData.observe(viewLifecycleOwner, Observer<List<Tarea>> { lista ->
             actualizaLista(lista)
+
         })
 
 
@@ -56,10 +57,7 @@ class ListaFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-
-
-
-        //para prueba, editamos una tarea aleatoria
+         //para prueba, editamos una tarea aleatoria
         binding.btPruebaEdicion.setOnClickListener{
         //cogemos la lista actual de Tareas que tenemos en el ViewModel. No es lo más correcto
             val lista= viewModel.tareasLiveData.value
@@ -70,11 +68,8 @@ class ListaFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-    }
+        iniciaFiltros()
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun actualizaLista(lista: List<Tarea>?) {
@@ -102,6 +97,22 @@ class ListaFragment : Fragment() {
         binding.tvLista.setText(listaString)
     }
     //Declaramos el ViewModel para compartir datos entre fragments
+
+   // activar el filtro cuando el usuario pulse en el switch
+    private fun iniciaFiltros(){
+        binding.swSinPagar.setOnCheckedChangeListener( ) { _,isChecked->
+        //actualiza el LiveData SoloSinPagarLiveData que a su vez modifica tareasLiveData
+        //mediante el Transformation
+            viewModel.setSoloSinPagar(isChecked)}
+    }
+
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 
 }
 
