@@ -43,7 +43,7 @@ class ListaFragment : Fragment() {
 
 
 
-        // Este codigo es el que hacia que petase la app
+        // Este codigo es el que hacia que petase la apppp
         /*
         El estába en la llamada a findNavController().navigate(R.id.action_editar)
         en el OnClickListener del FAB (binding.fabNuevo.setOnClickListener).
