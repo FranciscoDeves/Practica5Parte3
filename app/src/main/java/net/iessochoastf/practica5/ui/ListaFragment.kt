@@ -12,6 +12,8 @@ import net.iessochoastf.practica5.R
 import net.iessochoastf.practica5.model.Tarea
 import net.iessochoastf.practica5.viewmodel.AppViewModel
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import net.iessochoastf.practica5.adapters.TareasAdapter
 
 
 /**
@@ -24,6 +26,8 @@ class ListaFragment : Fragment() {
 
     private val viewModel: AppViewModel by activityViewModels()
 
+    lateinit var tareasAdapter: TareasAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,12 +38,24 @@ class ListaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        iniciaRecyclerView()
 
         viewModel.tareasLiveData.observe(viewLifecycleOwner, Observer<List<Tarea>> { lista ->
-            actualizaLista(lista)
-
+         //   actualizaLista(lista)
+            tareasAdapter.setLista(lista)
         })
 
+        }
+
+    private fun iniciaRecyclerView() {
+//creamos el adaptador
+        tareasAdapter = TareasAdapter()
+        with(binding.rvTareas) {
+//Creamos el layoutManager
+            layoutManager = LinearLayoutManager(activity)
+//le asignamos el adaptador
+            adapter = tareasAdapter
+        }
 
 
         // Este codigo es el que hacia que petase la apppp
