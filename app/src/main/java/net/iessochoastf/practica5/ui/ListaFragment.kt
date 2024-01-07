@@ -22,7 +22,6 @@ class ListaFragment : Fragment() {
     private var _binding: FragmentListaBinding? = null
     private val binding get() = _binding!!
 
-
     private val viewModel: AppViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -50,7 +49,7 @@ class ListaFragment : Fragment() {
         se estaba intentando navegar a un destino con un id específico (R.id.action_editar)
         sin proporcionar los argumentos requeridos para la transición.
          */
-
+/*
         binding.fabNuevo.setOnClickListener {
             // Crear acción para editar una nueva tarea, enviando un argumento nulo
             val action = ListaFragmentDirections.actionEditar(null)
@@ -69,7 +68,7 @@ class ListaFragment : Fragment() {
         }
 
         iniciaFiltros()
-
+*/
     }
 
     private fun actualizaLista(lista: List<Tarea>?) {
@@ -94,7 +93,7 @@ class ListaFragment : Fragment() {
                 )
             }
         }
-        binding.tvLista.setText(listaString)
+  //      binding.tvLista.setText(listaString)
     }
     //Declaramos el ViewModel para compartir datos entre fragments
 
